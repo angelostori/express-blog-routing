@@ -10,7 +10,15 @@ router.get('/', (req, res) => {
 
 // show
 router.get('/:id', (req, res) => {
-    res.send(`Show the post with id: ${req.params.id}`)
+    const id = Number(req.params.id)
+    const thisPost = posts.find(post => post.id === id)
+    // res.send(`Show the post with id: ${req.params.id}`)
+
+    if (!thisPost) {
+        res.send(`The post with id: ${req.params.id} doesn't exist`)
+    }
+
+    res.json(thisPost)
 })
 
 // store
