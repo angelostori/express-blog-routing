@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const posts = require('../assets/posts.js')
+
 
 // index
 router.get('/', (req, res) => {
-    res.send('Show all posts here')
+    res.json(posts)
 })
 
 // show
